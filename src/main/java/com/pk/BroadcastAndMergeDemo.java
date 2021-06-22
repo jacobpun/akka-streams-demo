@@ -20,7 +20,7 @@ import java.util.concurrent.CompletionStage;
 
 public class BroadcastAndMergeDemo {
     public static void main(String[] args) {
-        ActorSystem actorSystem = ActorSystem.create(Behaviors.empty(), "actorsystem");
+        ActorSystem<?> actorSystem = ActorSystem.create(Behaviors.empty(), "actorsystem");
         Sink<Integer, CompletionStage<Done>> sink = Sink.foreach(System.out::println);
 
         RunnableGraph<CompletionStage<Done>> graph = RunnableGraph.fromGraph(

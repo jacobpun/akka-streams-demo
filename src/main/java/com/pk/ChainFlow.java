@@ -13,7 +13,7 @@ import akka.stream.javadsl.Source;
 
 public class ChainFlow {
     public static void main(String[] args) {
-        ActorSystem actorSystem = ActorSystem.create(Behaviors.empty(), "ActorSystem");
+        ActorSystem<?> actorSystem = ActorSystem.create(Behaviors.empty(), "ActorSystem");
         
         Source<String, NotUsed> sentances = Source.from(List.of(
             "Birds fly high in sky",

@@ -13,7 +13,7 @@ import akka.stream.javadsl.Sink;
 
 public class ExploringFlow {
     public static void main(String[] args) {
-        ActorSystem actorSystem = ActorSystem.create(Behaviors.empty(), "ActorSystem");
+        ActorSystem<?> actorSystem = ActorSystem.create(Behaviors.empty(), "ActorSystem");
 
         Source<Integer, NotUsed> numbersSource = Source.range(1, 200);
         Flow<Integer, Integer, NotUsed> divisibleBy17 = Flow.of(Integer.class).filter(i -> i%17 == 0);

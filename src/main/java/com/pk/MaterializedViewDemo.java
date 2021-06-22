@@ -16,7 +16,7 @@ import akka.stream.javadsl.Sink;
 public class MaterializedViewDemo {
     public static void main(String[] args) {
         Random rand = new Random();
-        ActorSystem actorSystem = ActorSystem.create(Behaviors.empty(), "actor-system");
+        ActorSystem<?> actorSystem = ActorSystem.create(Behaviors.empty(), "actor-system");
         Source<Integer, NotUsed> src = Source.repeat(1).map(i -> rand.nextInt(300));
         Flow<Integer, Integer, NotUsed> filterGreaterThan200 = Flow.of(Integer.class).filter(i -> i > 200);
         Flow<Integer, Integer, NotUsed> filterEven = Flow.of(Integer.class).filter(i -> i %2 == 0);
